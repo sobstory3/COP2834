@@ -4,7 +4,7 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -29,9 +29,7 @@ function jsonDateReviver(key, value) {
   return value;
 }
 
-var IssueFilter =
-/*#__PURE__*/
-function (_React$Component) {
+var IssueFilter = /*#__PURE__*/function (_React$Component) {
   _inherits(IssueFilter, _React$Component);
 
   function IssueFilter() {
@@ -58,6 +56,7 @@ function IssueRow(props) {
 function IssueTable(props) {
   var issueRows = props.issues.map(function (issue) {
     return React.createElement(IssueRow, {
+      key: issue.id,
       issue: issue
     });
   });
@@ -66,9 +65,7 @@ function IssueTable(props) {
   }, React.createElement("thead", null, React.createElement("tr", null, React.createElement("th", null, "ID"), React.createElement("th", null, "Status"), React.createElement("th", null, "Owner"), React.createElement("th", null, "Created"), React.createElement("th", null, "Effort"), React.createElement("th", null, "Due Date"), React.createElement("th", null, "Title"))), React.createElement("tbody", null, issueRows));
 }
 
-var IssueAdd =
-/*#__PURE__*/
-function (_React$Component2) {
+var IssueAdd = /*#__PURE__*/function (_React$Component2) {
   _inherits(IssueAdd, _React$Component2);
 
   function IssueAdd() {
@@ -121,9 +118,7 @@ function graphQLFetch(_x) {
 }
 
 function _graphQLFetch() {
-  _graphQLFetch = _asyncToGenerator(
-  /*#__PURE__*/
-  regeneratorRuntime.mark(function _callee3(query) {
+  _graphQLFetch = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(query) {
     var variables,
         response,
         body,
@@ -138,7 +133,7 @@ function _graphQLFetch() {
             variables = _args3.length > 1 && _args3[1] !== undefined ? _args3[1] : {};
             _context3.prev = 1;
             _context3.next = 4;
-            return fetch('/graphql', {
+            return fetch(window.ENV.UI_API_ENDPOINT, {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json'
@@ -186,9 +181,7 @@ function _graphQLFetch() {
   return _graphQLFetch.apply(this, arguments);
 }
 
-var IssueList =
-/*#__PURE__*/
-function (_React$Component3) {
+var IssueList = /*#__PURE__*/function (_React$Component3) {
   _inherits(IssueList, _React$Component3);
 
   function IssueList() {
@@ -207,9 +200,7 @@ function (_React$Component3) {
   _createClass(IssueList, [{
     key: "createIssue",
     value: function () {
-      var _createIssue = _asyncToGenerator(
-      /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee(issue) {
+      var _createIssue = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(issue) {
         var query, data;
         return regeneratorRuntime.wrap(function _callee$(_context) {
           while (1) {
@@ -250,9 +241,7 @@ function (_React$Component3) {
   }, {
     key: "loadData",
     value: function () {
-      var _loadData = _asyncToGenerator(
-      /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee2() {
+      var _loadData = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
         var query, data;
         return regeneratorRuntime.wrap(function _callee2$(_context2) {
           while (1) {
