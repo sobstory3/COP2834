@@ -13,11 +13,11 @@ const port = process.env.API_SERVER_PORT || 3000;
 (async function () {
   try {
     await connectToDb();
-    app.listen(3000, function() {
+    app.listen(port, function() {
       console.log(`API server started on port ${port}`);
     });
   }
   catch (err) {
-    console.log('ERROR:' , err);
+    console.log('ERROR:', err);
   }
 }());

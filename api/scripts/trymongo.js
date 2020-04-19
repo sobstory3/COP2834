@@ -5,13 +5,13 @@ const url = process.env.DB_URL || 'mongodb://localhost/cop2836';
 
 function testWithCallbacks (callback) {
   console.log('\n--- testWithCallbacks ---');
-  const client = new MongoClient(url, { useNewUrlParser: true});
+  const client = new MongoClient(url, { useNewUrlParser: true });
   client.connect((connErr) => {
     if (err connErr) {
-      callback(connErr);
+      callback(connError);
       return;
     }
-    console.log('Connected to MongoDB URL', url);
+    console.log('Connected to MongoDB URL ', url);
 
     const db = client.db();
 
@@ -24,8 +24,8 @@ function testWithCallbacks (callback) {
         callback(insertErr);
         return;
       }
-      console.log('Result of insert:\n' , result.insertedId);
-      collection.find({ _id: result.insertedId})
+      console.log('Result of insert:\n', result.insertedId);
+      collection.find({ _id: result.insertedId })
         .toArray((findErr, docs) => {
           if (findErr) {
             client.close();
@@ -45,7 +45,7 @@ async function testWithAsync() {
   const client = new MongoClient(url, { useNewUrlParser: true});
   try {
     await client.connect();
-    console.log('Connected to MongoDB URL', url);
+    console.log('Connected to MongoDB URL ', url);
     const db = client.db();
     const collection = db.collection('employees');
 
@@ -65,9 +65,8 @@ async function testWithAsync() {
 
 testWithAsync();
 
-
-//  testWithCallbacks(function(err) {
-//    if (err) {
-//      console.log(err);
-//    }
-//  });
+// testWithCallbacks(function(err) {
+//   if (err) {
+//     console.log(err);
+//   }
+// });

@@ -10,4 +10,4 @@ function getMessage() {
   return aboutMessage;
 }
 
-module.exports = { getMessage, setMessage};
+module.exports = { getMessage, setMessage };
